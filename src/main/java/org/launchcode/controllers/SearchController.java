@@ -32,9 +32,9 @@ public class SearchController {
 
         ArrayList<Job> jobs;
 
-        if (searchForm.getSearchField().equals(JobFieldType.ALL)) {
-            jobs = jobData.findByValue(searchForm.getKeyword());
-        } else {
+        if (searchForm.getSearchField().equals(JobFieldType.ALL)) { //if the search radio button (ENUM) chosen  is all
+            jobs = jobData.findByValue(searchForm.getKeyword()); // then return the arraylist of Jobs with value matching keyword
+        } else {  // if a specific ENUM radio button is chosen:  return by the Class chosen and the keyword
             jobs = jobData.findByColumnAndValue(searchForm.getSearchField(), searchForm.getKeyword());
         }
 
